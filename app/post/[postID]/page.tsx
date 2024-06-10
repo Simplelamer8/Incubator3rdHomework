@@ -7,7 +7,7 @@ import thumbsUpIcon from "@/public/images/thumbsUpIcon.svg"
 
 export default function page({params}:{params: {postID: number}}) {
   const posts = useContext(TasksContext).posts, setPosts = useContext(TasksContext).setPosts;
-  const postId = params.postID - 1;
+  const postId = params.postID;
 
   console.log(posts);
   return (

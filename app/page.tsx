@@ -11,35 +11,6 @@ export interface Post {id: number, title: string, body: string, reactions: React
 export default function Home() {
 
 
-  /*
-    {
-    "posts": [
-          {
-            "id": 1,
-            "title": "His mother had always taught him",
-            "body": "His mother had always taught him not to ever think of himself as better than others. He'd tried to live by this motto. He never looked down on those who were less fortunate or who had less money than him. But the stupidity of the group of people he was talking to made him change his mind.",
-            "tags": [
-              "history",
-              "american",
-              "crime"
-            ],
-            "reactions": {
-              "likes": 192,
-              "dislikes": 25
-            },
-            "views": 305,
-            "userId": 121
-          },
-          {...},
-          {...}
-          // 30 items
-        ],
-        "total": 251,
-        "skip": 0,
-        "limit": 30
-      }
-  */
-
   let posts:Post[] = [], setPosts:React.Dispatch<React.SetStateAction<Post[]>>;
 
   const postsData:TaskContextType|null = useContext(TasksContext);
@@ -54,8 +25,8 @@ export default function Home() {
         </h1>
       </div>
       {
-        posts.map((post:Post) => (
-          <BlogCard {...post} />
+        posts.map((post:Post, index:number) => (
+          <BlogCard {...post} key={post.id} index={index} />
         ))
       }
     </main>

@@ -4,10 +4,11 @@ import Link from 'next/link'
 
 export default function Header() {
   return (
-    <Link href={"/"}>
-      <div className='px-[10%] py-10 font-bold tracking-wide'>
-        medium alike
-      </div>
-    </Link>
+    <div className='px-[15%] py-10 font-bold tracking-wide flex items-center justify-between'>
+      <Link href={"/"}>
+        <p>medium alike</p>
+      </Link>
+      <Link href={"/login"}>login</Link>
+    </div>
   )
 }
