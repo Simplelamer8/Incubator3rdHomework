@@ -40,26 +40,11 @@ export default function Home() {
       }
   */
 
-      let posts:Post[] = [], setPosts:React.Dispatch<React.SetStateAction<Post[]>>;
+  let posts:Post[] = [], setPosts:React.Dispatch<React.SetStateAction<Post[]>>;
 
-      const postsData:TaskContextType|null = useContext(TasksContext);
-      posts = postsData?.posts;
-      setPosts = postsData?.setPosts;
-      
-  useEffect(() => {
-    const fetchData = async () => {
-      try{
-        const response = await axios.get('https://dummyjson.com/posts');
-        console.log(response); 
-        setPosts(response.data.posts);
-      }
-      catch(error){
-        console.log("Error while fetching data:" + error);
-      }
-    }
-
-    fetchData();
-  }, [])
+  const postsData:TaskContextType|null = useContext(TasksContext);
+  posts = postsData?.posts;
+  setPosts = postsData?.setPosts;
 
   return (
     <main className="flex min-h-screen flex-col items-center p-24">
